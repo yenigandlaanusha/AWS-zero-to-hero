@@ -1,0 +1,17 @@
+1.Cloud
+2.Public Cloud
+3.Private Cloud
+4.Difference between public and private cloud?
+5.Why AWS
+
+Private Cloud - In side the organisation , they have a separate data center.
+Previously every organisation if they want server they will buy a server from IBM or any server companies and setup servers in an organisation.But the cost and maintainence of the servers is very high.
+To maintain the server they need dedicated employees,cooling system,security etc.And at the end the utilization of servers very less as they deploy only 1 application in 1 server
+So in order to use the servers in a better way , the new concept came into limelight that is Virtualization.Virtulization is the way of creating virtual servers on the top of server.In this way the useage of server is maximized.
+But for all the companies to maintain the server all these is very difficlut and it takes lots of money.AWS took this as a opputurtunity and came into the limelight of public cloud.
+
+Public Cloud- like AWS,Azure,GCP.Now all these companies are providing specific services for our/company needs same as private cloud.With cost effective and with no maintainance.
+
+Why AWS ?
+First company to see this cloud as a oppurtunity and came into this so it has more percentage of users and it has more than 200 type of services.
+
