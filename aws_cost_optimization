@@ -21,3 +21,9 @@ Run the lambda function either in an event driven or manual form
 Check for any permission errors
 Run the lamda function and if u have any stale snapshots , if program is success then the stale snapshots which are not attached to any running EC2 instances will be deleted.
 
+Steps to write lambda function:
+list all snapshots
+volumes
+ec2 instance
+verify if the snapshot belongs to a volume
+and if that volume is attached to any running ec2 instances
