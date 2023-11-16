@@ -1,0 +1,23 @@
+AWS COST OPTIMIZATION
+
+In this example, we'll create a Lambda function that identifies EBS snapshots that are no longer associated with any active EC2 instance and deletes them to save on storage costs.
+
+The Lambda function fetches all EBS snapshots owned by the same account ('self') and also retrieves a list of active EC2 instances (running and stopped).
+For each snapshot, it checks if the associated volume (if exists) is not associated with any active instance.
+If it finds a stale snapshot, it deletes it, effectively optimizing storage costs.
+
+Snapshot:Create a point-in-time snapshot of an EBS volume and use it as a baseline for new volumes or for data backup. You can create snapshots from an individual volume, or 
+you can create multi-volume snapshots from all of the volumes attached to an instance.Snapshot - Image of the Volume
+The developer wanted to delete the volume , snapshot but he forgot to delete the snapshots. He deleted the instance by default volume will also be deleted but the snapshots are still are still available.
+
+Steps:
+Create an EC2 instance
+By default a volume is attached to EC2 instance
+Create a snapshot 
+Create a lambda function
+Give required permissions for the lamda function like describe snapshots,iinstances,volumes,delete snapshots
+attach the permissions to lambda
+Run the lambda function either in an event driven or manual form
+Check for any permission errors
+Run the lamda function and if u have any stale snapshots , if program is success then the stale snapshots which are not attached to any running EC2 instances will be deleted.
+
