@@ -1,0 +1,33 @@
+
+***Content Delivery Network***
+
+S3 object based storage which is used to store static files like audioo,vedio etc and we can directly serve that in our website from there .now we directly host website to s3 bucket user can directly got the bucket and content will be rendered
+but this is not best practice.becoz users cant have direct access to s3 bucket for rendering the website.
+
+***the chalenges are***
+Security
+cost - for upload and download the files
+latency - slowness in loading the content
+
+CDN
+it helps to cache the content in the nearest edge location
+cdn service is cloud front
+what it will do is it will cache all the content like audio , video and everything at its edge location. these edge location can be where user is access the content.
+we have an user he is trying to access it near delhi and another user is in toronto, when they are access the webiste using edge location the content will be cached.
+so s3 will serve the content at the edge location and nxt someone from delhi is trying to access the website they dont go to the s3 bucket they can directly access from the edge location and access the data becoz content is already cached.Becoz the content is not in the biucket hosted location it is somewhere the user is access the data
+the edge location is all over the world,it will be cached to the nearest location.
+
+It helps in enhancing the security becoz now users are not accessing the s3 bucket directly
+cost - now we dont need to pay for upload and download becoz cost is cached in all edge locations all over the world
+latency:latency will be low becoz content is cached nearest edge location
+data transfer cost will be less 
+
+Create an S3 bucket
+Enable versioning
+Enable static website hosting
+Upload the files
+Access the url
+Create a cloudFront 
+Fill all necessary details
+Wait for the deployment to complete
+Access the page using url
