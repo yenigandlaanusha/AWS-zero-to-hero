@@ -1,0 +1,73 @@
+ECR similar to docker hub
+Elastic Container Registry
+Container: package which contains application and the dependencies.
+images are managed using ECR
+
+purpose of container registry: used to store the docker images.
+We have a docker image in our personal laptop and we want to share the docker image ith someone else in the world then we can simply place docker imge in ur laptop
+onto CR and someone else they can pull the image from this CR.
+
+
+E - they represent this service is highly scalable and available in nature,we can incresae the capacity of this service to accomodate any no of resource
+ECR-E means store any number of containers
+aws will take care making ECR to available all the times
+
+
+if i have dockerhub why ECR?
+
+ECR vs Dockerhub
+
+Dockerhub is free and we can create a public repository (anybody can download the images) even dockerhub have private repository it is only for authorize people and not everybody can access this repos or docker image.By default dockerhub create a public repository
+
+ECR support by default private repository,focus on security.if we are already a aws user we can use IAM users with permissions and policies directly we can integrate IAM with ECR.
+
+Unlike ECR, if a company use dockerhub , each and every person needs to create an account with dockerhub and you will never know docker hub has gone down now u cannot say dockerhub is accountable and we dont have that much support from the dockerhub if there are any issues
+
+as we are already AWS user and it gives us full support if there are any issues.It is very simple to integrate IAM users with ECR.
+
+If we have 10,000 users and to create account for all these 10k users and ensuring whether they have correct permission or not is a huge task but if u are already in AWS and integrating IAM users into ECR is very easy.
+
+ECR has very good integration with other service than dockerhub.
+
+For personal projects use Dockerhub
+Organisation-private container Registry use AWS ECR
+
+***What is AWS ECR?***
+AWS Elastic Container Registry (ECR) is a fully managed container image registry service provided by Amazon Web Services (AWS). 
+It enables you to store, manage, and deploy container images (Docker images) securely, making it an essential component of your containerized application development workflow.
+ECR integrates seamlessly with other AWS services like Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS).
+
+***Key Benefits of ECR***
+Security: ECR offers encryption at rest, and images are stored in private repositories by default, ensuring the security of your container images.
+Integration: ECR integrates smoothly with AWS services like ECS and EKS, simplifying the deployment process.
+Scalability: As a managed service, ECR automatically scales to meet the demands of your container image storage.
+Availability: ECR guarantees high availability, reducing the risk of image unavailability during critical times.
+Lifecycle Policies: You can define lifecycle policies to automate the cleanup of unused or old container images, helping you save on storage costs.
+
+***Demo:***
+
+Create a repository by default private
+Enable scan on push
+in terminal check for aws cli
+aws configure
+provide credentials
+view push commands
+
+Retrieve an authentication token and authenticate your Docker client to your registry.
+Use the AWS CLI:
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 5650.dkr.ecr.us-east-1.amazonaws.com
+
+Build your Docker image using the following command. 
+docker build -t demo-ecr .
+
+After the build completes, tag your image so you can push the image to this repository:
+
+docker tag demo-ecr:latest 5650.dkr.ecr.us-east-1.amazonaws.com/demo-ecr:latest
+Run the following command to push this image to your newly created AWS repository:
+
+docker push 5650.dkr.ecr.us-east-1.amazonaws.com/demo-ecr:latest
+Image pushed
+
+
+
